@@ -10,16 +10,21 @@ dotenv.config();
 const app = express();
 
 // ✅ Correct frontend URL handling
-const frontendurl =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:3000"
-    : "https://your-frontend-url.com";
+// const frontendurl =
+//   process.env.NODE_ENV === "development"
+//     ? "http://localhost:3000"
+//     : "https://your-frontend-url.com";
 
-// ✅ CORS setup
+// // ✅ CORS setup
+// app.use(cors({
+//   origin: frontendurl,
+//   credentials: true,
+// }));
 app.use(cors({
-  origin: frontendurl,
-  credentials: true,
+  origin: "http://localhost:3000",
+  credentials: true
 }));
+
 
 app.use(express.json());
 
