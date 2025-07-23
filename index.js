@@ -9,21 +9,18 @@ dotenv.config();
 
 const app = express();
 
-// ✅ Correct frontend URL handling
-// const frontendurl =
-//   process.env.NODE_ENV === "development"
-//     ? "http://localhost:3000"
-//     : "https://your-frontend-url.com";
 
-// // ✅ CORS setup
-// app.use(cors({
-//   origin: frontendurl,
-//   credentials: true,
-// }));
+const frontendurl =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : "https://ai-quiz-frontend-jre1.vercel.app";
+
+// ✅ CORS setup
 app.use(cors({
-  origin: "http://localhost:3000",
-  credentials: true
+  origin: frontendurl,
+  credentials: true,
 }));
+
 
 
 app.use(express.json());
